@@ -6,11 +6,13 @@ import Control.Monad.State (evalState, get, modify)
 import Data.Functor.Compose (Compose(..))
 import Data.Lens.Iso.Newtype (_Newtype)
 import Data.Lens.Setter ((%~))
-import Data.Lens.Types (Indexed(..), IndexedOptic, IndexedTraversal, Optic, Traversal, wander)
-import Data.Newtype (unwrap)
+import Data.Lens.Types (Indexed(..), IndexedOptic, IndexedFold, IndexedSetter, IndexedTraversal, Optic, Traversal, wander)
+import Data.Newtype (wrap, unwrap)
 import Data.Profunctor (class Profunctor, dimap, lcmap)
 import Data.Profunctor.Star (Star(..))
 import Data.Profunctor.Strong (first)
+import Data.FoldableWithIndex (class FoldableWithIndex, foldMapWithIndex)
+import Data.FunctorWithIndex (class FunctorWithIndex, mapWithIndex)
 import Data.TraversableWithIndex (class TraversableWithIndex, traverseWithIndex)
 import Data.Tuple (curry, fst, snd)
 
@@ -45,6 +47,21 @@ iwander
    . (forall f. Applicative f => (i -> a -> f b) -> s -> f t)
   -> IndexedTraversal i s t a b
 iwander itr = wander (\f s -> itr (curry f) s) <<< unwrap
+
+-- | Folds over a `FoldableWithIndex` container.
+ifolded
+  :: forall r i f t a b
+   . Monoid r
+  => FoldableWithIndex i f
+  => IndexedFold r i (f a) t a b
+ifolded = wrap <<< foldMapWithIndex <<< curry <<< unwrap <<< unwrap
+
+-- | Sets over a `FunctorWithIndex` container.
+imapped
+  :: forall i f a b
+   . FunctorWithIndex i f
+  => IndexedSetter i (f a) (f b) a b
+imapped = mapWithIndex <<< curry <<< unwrap
 
 -- | Traverses over a `TraversableWithIndex` container.
 itraversed
