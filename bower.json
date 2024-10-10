@@ -1,12 +1,6 @@
 {
   "name": "purescript-profunctor-lenses",
   "license": "MIT",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "output"
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/purescript-contrib/purescript-profunctor-lenses.git"

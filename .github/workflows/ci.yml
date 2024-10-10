@@ -28,7 +28,7 @@ jobs:
             output
 
       - name: Build source
-        run: spago build --censor-stats --strict --pedantic-packages
+        run: spago build --censor-stats --strict --ensure-ranges --pedantic-packages
 
       - name: Run tests
         run: spago test --offline --censor-stats --strict --pedantic-packages -- --censor-codes=UserDefinedWarning
