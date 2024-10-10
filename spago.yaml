@@ -1,0 +1,39 @@
+package:
+  name: profunctor-lenses
+  publish:
+    license: MIT
+    version: 8.0.0
+    location:
+      githubOwner: purescript-contrib
+      githubRepo: purescript-profunctor-lenses
+  dependencies:
+    - arrays
+    - bifunctors
+    - const
+    - control
+    - distributive
+    - either
+    - foldable-traversable
+    - foreign-object
+    - functors
+    - identity
+    - lists
+    - maybe
+    - newtype
+    - ordered-collections
+    - partial
+    - prelude
+    - profunctor
+    - record
+    - safe-coerce
+    - transformers
+    - tuples
+  test:
+    main: Test.Main
+    dependencies:
+      - assert
+      - effect
+workspace:
+  extraPackages: {}
+  packageSet:
+    registry: 60.5.0
