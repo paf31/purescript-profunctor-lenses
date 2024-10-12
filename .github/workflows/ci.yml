@@ -31,7 +31,7 @@ jobs:
         run: spago build --censor-stats --strict --ensure-ranges --pedantic-packages
 
       - name: Run tests
-        run: spago test --offline --censor-stats --strict --pedantic-packages -- --censor-codes=UserDefinedWarning
+        run: spago test --offline --censor-stats --strict --pedantic-packages
 
       - name: Verify formatting
         run: purs-tidy check src test
