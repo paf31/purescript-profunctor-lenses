@@ -1,0 +1,6 @@
+package:
+  name: profunctor-lenses-examples
+  dependencies:
+    - colors
+    - generics-rep
+    - record-extra
