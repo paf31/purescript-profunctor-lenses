@@ -128,7 +128,10 @@
         "core": {
           "dependencies": [
             "colors",
-            "record-extra"
+            "either",
+            "maybe",
+            "prelude",
+            "profunctor-lenses"
           ],
           "build_plan": [
             "arrays",
@@ -141,8 +144,10 @@
             "effect",
             "either",
             "enums",
+            "exceptions",
             "exists",
             "foldable-traversable",
+            "foreign-object",
             "functions",
             "functors",
             "gen",
@@ -155,17 +160,19 @@
             "newtype",
             "nonempty",
             "numbers",
+            "ordered-collections",
             "orders",
             "partial",
             "prelude",
             "profunctor",
+            "profunctor-lenses",
             "record",
-            "record-extra",
             "refs",
             "safe-coerce",
             "st",
             "strings",
             "tailrec",
+            "transformers",
             "tuples",
             "type-equality",
             "typelevel-prelude",
@@ -1106,20 +1113,6 @@
         "functions",
         "prelude",
         "unsafe-coerce"
-      ]
-    },
-    "record-extra": {
-      "type": "registry",
-      "version": "5.0.1",
-      "integrity": "sha256-7vnREK2fpGJ7exswSeA9UpZFuU+UXRt3SA7AFUldT/Y=",
-      "dependencies": [
-        "arrays",
-        "functions",
-        "lists",
-        "prelude",
-        "record",
-        "tuples",
-        "typelevel-prelude"
       ]
     },
     "refs": {

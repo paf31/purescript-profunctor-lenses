@@ -2,4 +2,7 @@ package:
   name: profunctor-lenses-examples
   dependencies:
     - colors
-    - record-extra
+    - either
+    - maybe
+    - prelude
+    - profunctor-lenses
