@@ -33,8 +33,7 @@ import Color (Color)
 import Color as Color
 import Data.Either (Either(..))
 import Data.Generic.Rep (class Generic)
-import Data.Generic.Rep.Eq as GEq
-import Data.Generic.Rep.Show as GShow
+import Data.Show.Generic (genericShow)
 import Data.Lens (Prism', is, isn't, nearly, only, preview, prism, prism', review)
 import Data.Maybe (Maybe(..), maybe)
 
@@ -72,7 +71,7 @@ solidFocus = prism' constructor focus
   constructor = Solid
   focus fill = case fill of
     Solid color -> Just color
-    otherCases -> Nothing
+    _ -> Nothing
 
 -- In real life, you might abbreviate the above to this:
 
@@ -239,26 +238,19 @@ n5 = review brightSolidFocus unit
 
 -- ... although Eq is only required for `only`.
 
-derive instance genericPercent :: Generic Percent _
+derive instance Generic Percent _
+derive instance Eq Percent
 
-instance eqPercent :: Eq Percent where
-  eq = GEq.genericEq
-
-instance showPercent :: Show Percent where
+instance Show Percent where
   show (Percent f) = "(" <> show f <> "%)"
 
-derive instance genericPoint :: Generic Point _
+derive instance Generic Point _
+derive instance Eq Point
 
-instance eqPoint :: Eq Point where
-  eq = GEq.genericEq
-
-instance showPoint :: Show Point where
+instance Show Point where
   show (Point x y) = "(" <> show x <> ", " <> show y <> ")"
 
-derive instance genericFill :: Generic Fill _
-
-instance eqFill :: Eq Fill where
-  eq = GEq.genericEq
-
-instance showFill :: Show Fill where
-  show x = GShow.genericShow x
+derive instance Generic Fill _
+derive instance Eq Fill
+instance Show Fill where
+  show = genericShow

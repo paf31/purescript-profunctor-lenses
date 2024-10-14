@@ -1,6 +1,6 @@
 ## Examples
 
-* [Using Prisms with Sum Types](src/PrismsForSumTypes.purs)
+- [Using Prisms with Sum Types](src/PrismsForSumTypes.purs)
 
 ## Conventions and the "why" behind them
 

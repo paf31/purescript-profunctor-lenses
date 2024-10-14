@@ -1,0 +1,8 @@
+package:
+  name: profunctor-lenses-examples
+  dependencies:
+    - colors
+    - either
+    - maybe
+    - prelude
+    - profunctor-lenses
